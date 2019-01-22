@@ -1,34 +1,67 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
+        <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="@Url.Action("Index","Home")"><img src='@Url.Content("~/Content/Images/Site/logo-w.png")' alt="Home" /></a>
+
+                <ul id="rightnav">
+                    <li>
+                        <a href='@Url.Action("Index","Home")' title="Cliquez ici pour vous connecter">
+                            <i class="fas fa-user"></i>
+                            <span>Connexion</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href='@Url.Action("Index","Home")' title="Comment utiliser Kartina">
+                            <i class="far fa-question-circle"></i>
+                            <span>Aide</span>
+                        </a>
+                    </li>
+                    <li>
+                        <div onclick="openModal();">
+                            <img src="@Url.Content("~/Content/Images/Site/fr.svg")" width="14" alt="Français">
+                            <span>FR</span>
+                        </div>
+                    </li>
+                    <li>
+                        <a href='@Url.Action("Index","Home")' title="Panier Kartina">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Panier</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <a href="@Url.Action("Index","Home")" id="homelogo"><img src='@Url.Content("~/Content/Images/Site/logo-w.png")' alt="Home" /></a>
 
                 <form name="_s" method="get" id="searchbox-wrapper" class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block ">
-                    <input type="search" value="Search" id="searchbox" />
+                    <input id="searchbox" type="search" placeholder="Search..." />
                     <label for="searchbox"><i class="fa fa-search"></i></label>
                 </form>
+
+
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Photographies", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Nouveautés", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Artistes", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Derniers exemplaires", "Index", "Home")</li>
                 </ul>
             </div>
         </div>
