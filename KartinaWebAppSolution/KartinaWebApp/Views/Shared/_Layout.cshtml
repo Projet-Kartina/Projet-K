@@ -18,6 +18,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="@Url.Action("Index","Home")"><img src='@Url.Content("~/Content/Images/Site/logo-w.png")' alt="Home" /></a>
+
+                <form name="_s" method="get" id="searchbox-wrapper" class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block ">
+                    <input type="search" value="Search" id="searchbox" />
+                    <label for="searchbox"><i class="fa fa-search"></i></label>
+                </form>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">

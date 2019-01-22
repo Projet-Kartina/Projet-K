@@ -28,3 +28,8 @@ textarea {
 .navbar-header{
     float: none;
 }
+
+/* search */
+#searchbox-wrapper .fa-search {
+    color: white;
+}
