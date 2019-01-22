@@ -9,8 +9,22 @@ namespace KartinaWebApp.Controllers
     public class UserController : Controller
     {
         // GET: User
-        public ActionResult Index()
+        public ActionResult Informations()
         {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "";
+
             return View();
         }
     }

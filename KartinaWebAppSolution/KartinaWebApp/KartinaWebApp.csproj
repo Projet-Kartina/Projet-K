@@ -126,6 +126,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CommandeController.cs" />
+    <Compile Include="Controllers\FiltreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PaiementController.cs" />
@@ -142,7 +144,25 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\femme1 - Copier.jpeg" />
+    <Content Include="Content\Images\femme2 - Copier.jpeg" />
+    <Content Include="Content\Images\femme3 - Copier.jpeg" />
+    <Content Include="Content\Images\nature1 - Copier.jpeg" />
+    <Content Include="Content\Images\nature2 - Copier.jpeg" />
+    <Content Include="Content\Images\nature3 - Copier.jpeg" />
+    <Content Include="Content\Images\noiretblanc1 - Copier.jpeg" />
+    <Content Include="Content\Images\noiretblanc2 - Copier.jpeg" />
+    <Content Include="Content\Images\noiretblanc3.jpeg" />
     <Content Include="Content\Images\Site\logo-w.png" />
+    <Content Include="Content\Images\urbain1.jpeg" />
+    <Content Include="Content\Images\urbain2.jpeg" />
+    <Content Include="Content\Images\urbain3.jpeg" />
+    <Content Include="Content\Images\vintage1.jpeg" />
+    <Content Include="Content\Images\vintage2.jpeg" />
+    <Content Include="Content\Images\vintage3.jpeg" />
+    <Content Include="Content\Images\voyage1.jpg" />
+    <Content Include="Content\Images\voyage2.jpg" />
+    <Content Include="Content\Images\voyage3.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -171,18 +191,27 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Aide.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Login\ConnexionCreationCompte.cshtml" />
+    <Content Include="Views\Login\CreationCompte.cshtml" />
+    <Content Include="Views\User\CompteUser.cshtml" />
+    <Content Include="Views\Filtre\Orientation.cshtml" />
+    <Content Include="Views\Filtre\Theme.cshtml" />
+    <Content Include="Views\Filtre\Format.cshtml" />
+    <Content Include="Views\Filtre\Prix.cshtml" />
+    <Content Include="Views\Filtre\FiltreAvance.cshtml" />
+    <Content Include="Views\Commande\Format.cshtml" />
+    <Content Include="Views\Commande\Finition.cshtml" />
+    <Content Include="Views\Commande\Cadre.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Login\" />
     <Folder Include="Views\Paiement\" />
     <Folder Include="Views\Panier\" />
     <Folder Include="Views\Photo\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
