@@ -1,0 +1,66 @@
+﻿@model Kartina2.Photo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Photo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chemin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chemin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbTiragesMax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbTiragesMax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Civilité)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Civilité)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

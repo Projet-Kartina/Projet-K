@@ -259,3 +259,8 @@ C:\Users\Ivana\Desktop\Projet K\KartinaWebAppSolution\KartinaWebApp\obj\Debug\Ka
 C:\Users\Ivana\Desktop\Projet K\KartinaWebAppSolution\KartinaWebApp\obj\Debug\KartinaWebApp.csproj.CopyComplete
 C:\Users\Ivana\Desktop\Projet K\KartinaWebAppSolution\KartinaWebApp\obj\Debug\KartinaWebApp.dll
 C:\Users\Ivana\Desktop\Projet K\KartinaWebAppSolution\KartinaWebApp\obj\Debug\KartinaWebApp.pdb
+C:\Users\M2iformation\Desktop\Projet-K\KartinaWebAppSolution\KartinaWebApp\bin\EntityFramework.dll
+C:\Users\M2iformation\Desktop\Projet-K\KartinaWebAppSolution\KartinaWebApp\bin\EntityFramework.SqlServer.dll
+C:\Users\M2iformation\Desktop\Projet-K\KartinaWebAppSolution\KartinaWebApp\bin\EntityFramework.xml
+C:\Users\M2iformation\Desktop\Projet-K\KartinaWebAppSolution\KartinaWebApp\bin\EntityFramework.SqlServer.xml
+C:\Users\M2iformation\Desktop\Projet-K\KartinaWebAppSolution\KartinaWebApp\bin\fr\EntityFramework.resources.dll
