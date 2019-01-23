@@ -26,7 +26,7 @@ textarea {
 }
 
 
-    /* Common style */
+    /* --- Common style --- */
     a {
         color: white;
         transition: all 0.3s ease;
@@ -42,7 +42,8 @@ textarea {
 
 
 
-/* --- header --- */
+    /* --- header --- */
+
     .navbar-header {
         float: none;
     }
@@ -57,7 +58,6 @@ textarea {
         height: 85px;
         display: inline-block;
     }
-
     #homelogo img {
         height: 100%;
     }
@@ -69,13 +69,13 @@ textarea {
         color: white;
         padding-top: 30px;
     }
-
     #rightnav > li {
         display: inline-block;
         padding: 5px;
     }
 
-/* search */
+
+    /* search */
     #searchbox {
         border: 1px solid white;
         background: #333;
@@ -84,40 +84,33 @@ textarea {
         color: white;
         font-size: 1.2rem;
     }
-
     #searchbox:focus {
         border: 1px solid #ffc50c;
         outline: none;
     }
-
     #searchbox::-webkit-input-placeholder {
         color: white;
         font-size: 1.2rem;
     }
-
     #searchbox::-moz-placeholder {
         color: white;
         font-size: 1.2rem;
     }
-
     #searchbox:-ms-input-placeholder {
         color: white;
         font-size: 1.2rem;
     }
-
     #searchbox + label {
         margin-bottom: 0;
         margin-left: -35px;
         vertical-align: middle;
     }
-
     #searchbox-wrapper .fa-search {
         color: white;
         transform: scaleX(-1);
         padding: 6px;
         transition: all 0.3s ease;
     }
-
     #searchbox-wrapper .fa-search:hover {
         color: #ffc50c;
     }
