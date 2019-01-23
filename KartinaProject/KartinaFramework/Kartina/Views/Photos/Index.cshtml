@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Kartina.Photo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2><em>Page Artiste</em></h2>
+
+<table class="table">
+    <div class="d1">
+        <div class="panel panel-default" style="background-color:black; padding:10px">
+            <div>
+                <h2 class="alert-heading" style="text-align: center">@Html.DisplayFor(modelItem => item.)</h2>
+                <p style="text-align: center">@Html.DisplayFor(modelItem => Model.Prenom)</p>
+                <hr>
+                <p></p>
+            </div>
+            <div style="text-align: center">
+                <i class="fab fa-facebook-square"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-pinterest"></i>
+            </div>
+        </div>
+    </div>
+    <tr>
+        <td>
+            <img src="@Url.Content("~/Content/Images/femme1.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/femme2.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/femme3.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/nature1.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/nature2.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/nature3.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/noiretblanc1.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/noiretblanc2.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/noiretblanc3.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/urbain1.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/urbain1.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/urbain3.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/vintage1.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/vintage2.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/vintage3.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/voyage1.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/voyage2.jpeg")" />
+            <img src="@Url.Content("~/Content/Images/voyage3.jpeg")" />
+        </td>
+    </tr>
+    @*<div class="row mb-2">
+        @if (Model.Photo.Count > 0)
+        {
+            foreach (var item in Model.Photo)
+            {
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="card" style="height: 100px;">
+                            <div class="card-body" style="text-align: center; padding:10px">
+                                <div>
+                                    <h5 class="card-title"><strong>@Html.DisplayFor(modelItem => item.Titre)</strong></h5>
+                                    <p class="card-text">Prix :@Html.DisplayFor(modelItem => item.Prix)</p>
+                                    <p class="card-text">Date de sortie :@Html.DisplayFor(modelItem => item.Date)</p>
+                                    <p class="card-text">Pièces restantes: @Html.DisplayFor(modelItem => item.NbTiragesMax)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+        else
+        {
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="card" style="height: 100px;">
+                        <div class="card-body" style="text-align: center; padding: 20px;">
+                            <h5 class="card-title"><strong>Aucune photo disponible</strong></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        <tr>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="card" style="height: 100px;">
+                        <div class="card-body" style="text-align: center; padding:10px"></div>
+                    </div>
+                </div>
+            </div>
+            <td>
+                      @if (Roles == Vendeur)
+                      {
+                          @Html.ActionLink("Add", "Add", new { id = item.id })
+                      }
+            </td>
+        @*</tr>
+    </div>*@
+</table>

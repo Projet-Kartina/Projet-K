@@ -1,0 +1,58 @@
+﻿@model Kartina.Finition
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Finition</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finition1.Label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finition1.Label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finition2.Label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finition2.Label)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Format.Label)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Format.Label)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

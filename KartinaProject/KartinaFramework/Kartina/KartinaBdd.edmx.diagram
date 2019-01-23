@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5097e8db32d8434ca8160531b56ccf8c" Name="Diagram1">
+        <EntityTypeShape EntityType="KartinaTPModel.Adresse" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Cadre" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Commande" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.DetailCommande" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Finition" Width="1.5" PointX="0.75" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Format" Width="1.5" PointX="3" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Orientation" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Photo" Width="1.5" PointX="3" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Role" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Tag" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.Theme" Width="1.5" PointX="5.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KartinaTPModel.User" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <AssociationConnector Association="KartinaTPModel.FK_Adresse_User" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_DetailCommande_Cadre" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_DetailCommande_Commande" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_DetailCommande_Format" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_DetailCommande_Photo" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_Finition_Finition" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_Format_Finition" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_Orientation_Photo" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_Photo_User" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_Theme_Photo" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FK_Role_User" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.DetailCommandePhoto" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FinitionCadre" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.FormatFinition" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.PhotoFormat" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.PhotoTag" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
