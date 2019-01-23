@@ -12,14 +12,15 @@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <div>
+            <div class="navbar-header container">
+                <button type="button" class="navbar-toggle burger" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <ul id="rightnav">
+
+                <ul id="rightnav" class="navbar-collapse collapse">
                     <li>
                         <a href='@Url.Action("Index","Home")' title="Cliquez ici pour vous connecter">
                             <i class="fas fa-user"></i>
@@ -34,7 +35,7 @@
                     </li>
                     <li>
                         <div onclick="openModal();">
-                            <img src="@Url.Content("~/Content/Images/site/france-128.png")" width="14" alt="Français">
+                            <img src="@Url.Content("~/Content/Images/site/france-128.png")" class="langFlag" width="14" alt="Français">
                             <span>FR</span>
                         </div>
                     </li>
@@ -45,15 +46,20 @@
                         </a>
                     </li>
                 </ul>
-                <a href="@Url.Action("Index","Home")" id="homelogo"><img src='@Url.Content("~/Content/Images/site/logo-w.png")' alt="Home" /></a>
+
+                <a href="@Url.Action("Index","Home")" id="homelogo">
+                    <img src='@Url.Content("~/Content/Images/site/logo-w.png")' alt="Home" /><br />
+                    <span class="hidden-xs">La photo qu'il vous faut!</span>
+                </a>
+
                 <form name="_s" method="get" id="searchbox-wrapper" class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block ">
                     <input id="searchbox" type="search" placeholder="Search..." />
                     <label for="searchbox"><i class="fa fa-search"></i></label>
                 </form>
-
             </div>
+
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav container">
                     <li>@Html.ActionLink("Photographies", "Index", "Home")</li>
                     <li>@Html.ActionLink("Nouveautés", "Index", "Home")</li>
                     <li>@Html.ActionLink("Artistes", "Index", "Home")</li>
@@ -65,11 +71,44 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div id="footerLangFlag" class="col-sm-2" onclick="openModal();">
+                    <img src="@Url.Content("~/Content/Images/site/france-128.png")" class="langFlag" width="14" alt="Français">
+                    <span>FR</span>
+                </div>
+
+                <ul class="col-sm-8 text-right">
+                    <li >
+                        <a href="mentionslegales.html" title="Mentions légales">
+                            <span>Mentions légales</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cgu.html" title="Conditions générales d'utilisation">
+                            <span>Conditions générales d'utilisation</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="col-sm-2 text-right">
+                    <li id="social-fb">
+                        <a href="https://fr-fr.facebook.com/" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li id="social-tw">
+                        <a href="https://twitter.com/?lang=fr" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
