@@ -1,7 +1,11 @@
-﻿
+﻿@model Kartina.Photo
+
 @{
     ViewBag.Title = "votre photographie d'art";
 }
 
 <h2>Créez votre photographie d'art sur mesure</h2>
 
+@Html.DisplayFor(model => model.Titre)
+
+@Html.DisplayFor(model => model.User.Prenom)

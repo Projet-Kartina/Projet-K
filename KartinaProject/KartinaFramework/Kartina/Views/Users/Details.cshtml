@@ -2,85 +2,39 @@
 
 @{
     ViewBag.Title = "Artiste";
-    ViewBag.idPage = "artiste-detail";
+    ViewBag.idPage = "artiste-detail-page";
 
 }
 
-<h2>Artiste</h2>
 
-<div class="dark-bg-color">
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Civilité)
-        </dt>
+<div id="artiste-detail">
 
-        <dd>
-            @Html.DisplayFor(model => model.Civilité)
-        </dd>
+    <h2>@Html.DisplayFor(model => model.Prenom) @Html.DisplayFor(model => model.Nom)</h2>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Prenom)
-        </dt>
+    <p>@Html.DisplayNameFor(model => model.Biographie)</p>
+    <p>@Html.DisplayFor(model => model.Biographie)</p>
 
-        <dd>
-            @Html.DisplayFor(model => model.Prenom)
-        </dd>
+</div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nom)
-        </dt>
+<div class="row">
+    @foreach (var item in Model.Photo)
+    {
 
-        <dd>
-            @Html.DisplayFor(model => model.Nom)
-        </dd>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <a href="@Url.Action("Create","Order",new { id = @Html.DisplayFor(modelItem => item.id) })" class="detailImageLink" title="Commander la photo @Html.DisplayFor(modelItem => item.Titre)">
+                    <img src='@Url.Content("~/Content/Images/")@Html.DisplayFor(modelItem => item.Chemin)' alt="@Html.DisplayFor(modelItem => item.Titre)" />
+                </a>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Telephone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Telephone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Biographie)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Biographie)
-        </dd>
-
-    </dl>
-
-    <div class="row">
-        @foreach (var item in Model.Photo)
-        {
-
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <a href="@Url.Action("Create","Order",new { id = @Html.DisplayFor(modelItem => item.id) })" class="detailImageLink" title="Commander la photo @Html.DisplayFor(modelItem => item.Titre)">
-                        <img src='@Url.Content("~/Content/Images/")@Html.DisplayFor(modelItem => item.Chemin)' alt="@Html.DisplayFor(modelItem => item.Titre)" />
-                    </a>
-
-                    <div class="caption">
-                        <h3>@Html.DisplayFor(modelItem => item.Titre)</h3>
-                        <p class="card-text">A partir de <strong>@Html.DisplayFor(modelItem => item.Prix) €</strong></p>
-                        <p class="card-text">Pièces restantes: @Html.DisplayFor(modelItem => item.NbTiragesMax)</p>
-                    </div>
+                <div class="caption">
+                    <h3>@Html.DisplayFor(modelItem => item.Titre)</h3>
+                    <p class="card-text">A partir de <strong>@Html.DisplayFor(modelItem => item.Prix) €</strong></p>
+                    <p class="card-text">Pièces restantes: @Html.DisplayFor(modelItem => item.NbTiragesMax)</p>
                 </div>
             </div>
-        }
-    </div>
-<p>
-    @Html.ActionLink("Retour à la liste", "Index")
-</p>
+        </div>
+    }
 </div>
+<p>
+    @Html.ActionLink("Retour à la liste", "Index", null, new {id = "returnIndexDetails" })
+</p>

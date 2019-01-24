@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -8,6 +11,8 @@ namespace Kartina.Controllers
 {
     public class OrderController : Controller
     {
+        private KartinaTPEntities db = new KartinaTPEntities();
+
         // GET: Order
         public ActionResult Index()
         {
@@ -23,28 +28,37 @@ namespace Kartina.Controllers
 
 
         // GET: Order/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Photo photo = db.Photo.Find(id);
+            if (photo == null)
+            {
+
+                return HttpNotFound();
+            }
+            return View(photo);
         }
 
         // POST: Order/Create
         [HttpPost]
-        public ActionResult Create(int id, FormCollection collection)
+        public ActionResult Create(int? id, FormCollection collection)
         {
-            try
+            if (id == null)
             {
-                // TODO: Add insert logic here
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Photo photo = db.Photo.Find(id);
+            if (photo == null)
+            {
 
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
-            catch
-            {
-                return View();
-            }
+            return View(photo);
         }
-
-
 
 
         // GET: Order/Edit/5

@@ -36,7 +36,7 @@
                     <li>
                         <div onclick="openModal();">
                             <img src="@Url.Content("~/Content/Images/site/france-128.png")" class="langFlag" width="14" alt="Français">
-                            <span>FR</span>
+                            <span class="text-white-color">FR</span>
                         </div>
                     </li>
                     <li>
@@ -66,9 +66,9 @@
                     <li>@Html.ActionLink("Derniers exemplaires", "Index", "Home")</li>
                 </ul>
             </div>
-
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
     </div>
