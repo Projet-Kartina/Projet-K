@@ -33,6 +33,11 @@
         <AssociationConnector Association="KartinaTPModel.FormatFinition" ManuallyRouted="false" />
         <AssociationConnector Association="KartinaTPModel.PhotoFormat" ManuallyRouted="false" />
         <AssociationConnector Association="KartinaTPModel.PhotoTag" ManuallyRouted="false" />
+        <AssociationConnector Association="KartinaTPModel.DetailCommandePhoto1" />
+        <AssociationConnector Association="KartinaTPModel.FinitionCadre1" />
+        <AssociationConnector Association="KartinaTPModel.FormatFinition1" />
+        <AssociationConnector Association="KartinaTPModel.PhotoFormat1" />
+        <AssociationConnector Association="KartinaTPModel.PhotoTag1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

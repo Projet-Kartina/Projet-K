@@ -19,6 +19,7 @@ namespace Kartina
         {
             this.DetailCommande = new HashSet<DetailCommande>();
             this.Finition = new HashSet<Finition>();
+            this.Finition1 = new HashSet<Finition>();
         }
     
         public int Id { get; set; }
@@ -29,5 +30,7 @@ namespace Kartina
         public virtual ICollection<DetailCommande> DetailCommande { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Finition> Finition { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Finition> Finition1 { get; set; }
     }
 }

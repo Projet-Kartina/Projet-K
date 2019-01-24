@@ -23,6 +23,9 @@ namespace Kartina
             this.DetailCommande1 = new HashSet<DetailCommande>();
             this.Format = new HashSet<Format>();
             this.Tag = new HashSet<Tag>();
+            this.DetailCommande11 = new HashSet<DetailCommande>();
+            this.Format1 = new HashSet<Format>();
+            this.Tag1 = new HashSet<Tag>();
         }
     
         public int id { get; set; }
@@ -46,5 +49,11 @@ namespace Kartina
         public virtual ICollection<Format> Format { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tag> Tag { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DetailCommande> DetailCommande11 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Format> Format1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tag> Tag1 { get; set; }
     }
 }

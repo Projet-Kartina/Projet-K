@@ -22,7 +22,6 @@ namespace Kartina.Controllers
             //var query = from v in User
             //            join p in Photo on v.Id equals p.IDUser
             //            select v;
-            var t = db.User.ToList();
             return View(db.User.ToList());
         }
 

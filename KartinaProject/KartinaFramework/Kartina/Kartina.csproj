@@ -169,6 +169,7 @@
     <Compile Include="Controllers\FinitionsController.cs" />
     <Compile Include="Controllers\FormatsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\OrientationsController.cs" />
     <Compile Include="Controllers\PanierController.cs" />
     <Compile Include="Controllers\PhotosController.cs" />
@@ -244,8 +245,8 @@
     <Content Include="Content\images\vintage1.jpeg" />
     <Content Include="Content\images\vintage2.jpeg" />
     <Content Include="Content\images\vintage3.jpeg" />
-    <Content Include="Content\images\voyage1.jpg" />
-    <Content Include="Content\images\voyage2.jpg" />
+    <Content Include="Content\images\voyage1.jpeg" />
+    <Content Include="Content\images\voyage2.jpeg" />
     <Content Include="Content\images\voyage3.jpeg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -256,6 +257,7 @@
       <LastGenOutput>KartinaBdd.Context.cs</LastGenOutput>
       <DependentUpon>KartinaBdd.edmx</DependentUpon>
     </Content>
+    <Content Include="KartinaBdd.edmx.sql" />
     <Content Include="KartinaBdd.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>KartinaBdd.edmx</DependentUpon>
@@ -343,6 +345,7 @@
     <Content Include="Views\Orientations\Details.cshtml" />
     <Content Include="Views\Orientations\Edit.cshtml" />
     <Content Include="Views\Orientations\Index.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

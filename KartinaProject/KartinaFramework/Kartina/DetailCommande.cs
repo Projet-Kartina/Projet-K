@@ -18,6 +18,7 @@ namespace Kartina
         public DetailCommande()
         {
             this.Photo1 = new HashSet<Photo>();
+            this.Photo11 = new HashSet<Photo>();
         }
     
         public int Id { get; set; }
@@ -35,5 +36,7 @@ namespace Kartina
         public virtual Photo Photo { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Photo> Photo1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Photo> Photo11 { get; set; }
     }
 }

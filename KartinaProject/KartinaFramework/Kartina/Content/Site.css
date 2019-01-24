@@ -53,6 +53,10 @@ textarea {
 
     }
 
+    .black-bg {
+        background-color: var(--dark-bg-color);
+    }
+
 
 
 /* ----------- Header ----------- */
@@ -172,6 +176,7 @@ textarea {
 
 /* --------- END: Header --------- */
 
+
 /* ----------- Footer ------------ */
 footer {
     background-color: var(--dark-bg-color);
@@ -192,4 +197,13 @@ footer ul li a {
     color: var(--text-gray-color);
 }
 /* --------- END: Footer --------- */
+
+/* ----------- UserDetail ------------ */
+.UserDetail {
+    height:200px;
+    
+}
+/* --------- END: UserDetail --------- */
+
+
 
