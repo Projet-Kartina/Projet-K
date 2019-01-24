@@ -2,13 +2,13 @@
 
 @{
     ViewBag.Title = "Artiste";
-}
-<div class="black-bg">
+    ViewBag.idPage = "artiste-detail";
 
-</div>
+}
+
 <h2>Artiste</h2>
 
-<div>
+<div class="dark-bg-color">
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -60,28 +60,27 @@
         </dd>
 
     </dl>
-</div>
 
-<div class="row">
-    @foreach (var item in Model.Photo)
-    {
+    <div class="row">
+        @foreach (var item in Model.Photo)
+        {
 
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-                <a href="@Url.Action("Index","")" id="homelogo">
-                    <img src='@Url.Content("~/Content/Images/")@Html.DisplayFor(modelItem => item.Chemin)' class="detailUserImage" alt="@Html.DisplayFor(modelItem => item.Titre)" />
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a href="@Url.Action("Create","Order",new { id = @Html.DisplayFor(modelItem => item.id) })" class="detailImageLink" title="Commander la photo @Html.DisplayFor(modelItem => item.Titre)">
+                        <img src='@Url.Content("~/Content/Images/")@Html.DisplayFor(modelItem => item.Chemin)' alt="@Html.DisplayFor(modelItem => item.Titre)" />
                     </a>
+
                     <div class="caption">
                         <h3>@Html.DisplayFor(modelItem => item.Titre)</h3>
-                        <p class="card-text">Prix :@Html.DisplayFor(modelItem => item.Prix)</p>
-                        <p class="card-text">Date de sortie :@Html.DisplayFor(modelItem => item.Date)</p>
+                        <p class="card-text">A partir de <strong>@Html.DisplayFor(modelItem => item.Prix) €</strong></p>
                         <p class="card-text">Pièces restantes: @Html.DisplayFor(modelItem => item.NbTiragesMax)</p>
                     </div>
+                </div>
             </div>
-        </div>
-    }
-</div>
+        }
+    </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Retour à la liste", "Index")
 </p>
+</div>

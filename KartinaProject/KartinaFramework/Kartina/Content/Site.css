@@ -25,17 +25,11 @@ textarea {
 }
 
 
-    /* --- Common style --- */
-:root {
-    --line-color: #333333;
-    --dark-bg-color: #0d0d0d;
-    --text-gray-color: #999999;
+/* --- Common style --- */
+a {
+    color: white;
+    transition: all 0.3s ease;
 }
-
-    a {
-        color: white;
-        transition: all 0.3s ease;
-    }
 
     a:hover {
         color: #ffc50c;
@@ -47,33 +41,38 @@ textarea {
         text-decoration: none;
     }
 
-    ul {
-        list-style-type: none;
-        padding-left: 0;
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
 
-    }
 
-    .black-bg {
-        background-color: var(--dark-bg-color);
-    }
+.dark-bg-color {
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
 
+.text-gray-color {
+    color: #999;
+}
 
 
 /* ----------- Header ----------- */
 .navbar-inverse {
-    background-color: var(--dark-bg-color);
+    background-color: #0d0d0d;
 }
+
 .navbar-header {
     float: none;
 }
 
 .navbar-collapse.collapse {
-    border-top: 1px solid var(--line-color);
+    border-top: 1px solid #333;
 }
 
 .navbar-nav {
     float: none;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -84,20 +83,22 @@ textarea {
         color: #ffc50c;
     }
 
-    /* logo */
+/* logo */
 #homelogo {
     height: 85px;
     display: inline-block;
 }
+
     #homelogo img {
         height: 100%;
     }
+
     #homelogo span {
         font-size: 1.2rem;
-        vertical-align:top;
+        vertical-align: top;
     }
 
-.burger{
+.burger {
     margin-top: 25px;
 }
 
@@ -115,22 +116,22 @@ textarea {
         padding: 5px;
     }
 
-    .langFlag {
-        vertical-align:inherit;
-        width: 15px;
-        margin-top:2px;
-    }
+.langFlag {
+    vertical-align: inherit;
+    width: 15px;
+    margin-top: 2px;
+}
 
-    /* search */
-    #searchbox {
-        border: 1px solid white;
-        background: #333;
-        margin-left: 25px;
-        padding: 5px 8px;
-        color: white;
-        width: 240px;
-        font-size: 1.2rem;
-    }
+/* search */
+#searchbox {
+    border: 1px solid white;
+    background: #333;
+    margin-left: 25px;
+    padding: 5px 8px;
+    color: white;
+    width: 240px;
+    font-size: 1.2rem;
+}
 
     #searchbox:focus {
         border: 1px solid #ffc50c;
@@ -158,10 +159,10 @@ textarea {
         vertical-align: middle;
     }
 
-    #searchbox-wrapper{
-        vertical-align: top;
-        margin-top: 45px;
-    }
+#searchbox-wrapper {
+    vertical-align: top;
+    margin-top: 45px;
+}
 
     #searchbox-wrapper .fa-search {
         color: white;
@@ -170,21 +171,17 @@ textarea {
         transition: all 0.3s ease;
     }
 
-    #searchbox-wrapper .fa-search:hover {
-        color: #ffc50c;
-    }
+        #searchbox-wrapper .fa-search:hover {
+            color: #ffc50c;
+        }
 
 /* --------- END: Header --------- */
-
-
 /* ----------- Footer ------------ */
 footer {
-    background-color: var(--dark-bg-color);
-    color: var(--text-gray-color);
-    
+    color: #999;
 }
 
-#footerLangFlag{
+#footerLangFlag {
     padding: 15px;
 }
 
@@ -193,16 +190,44 @@ footer ul li {
     padding: 15px 5px 0;
 }
 
-footer ul li a {
-    color: var(--text-gray-color);
-}
+    footer ul li a {
+        color: #999;
+    }
 /* --------- END: Footer --------- */
 
+
+
+
 /* ----------- UserDetail ------------ */
-.UserDetail {
-    height:200px;
-    
+#artiste-detail {
+    background-color: #0d0d0d;
+    color: #fff;
 }
+
+#artiste-detail .thumbnail {
+    padding: 0;
+}
+
+#artiste-detail .thumbnail h3 {
+    margin: 10px 0 5px;
+}
+
+#artiste-detail .thumbnail p {
+    margin: 5px 0;
+}
+
+.detailImageLink {
+    height: 260px;
+    width: 100%;
+    display: block;
+}
+
+#artiste-detail .detailImageLink img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* --------- END: UserDetail --------- */
 
 
