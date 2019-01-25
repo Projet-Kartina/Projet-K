@@ -1,0 +1,65 @@
+﻿@model Kartina.User
+@{
+    ViewBag.Title = "Aide";
+}
+
+
+<h2 style="text-align: center">Aide</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <br><label>Civilité: </label>
+        <div style="text-align: center">
+            <label>Mr</label>
+            <input type="checkbox" name="Nom">
+            <label>Mme</label>
+            <input type="checkbox" name="Nom">
+            <label>Mlle</label>
+            <input type="checkbox" name="Nom">
+        </div>
+
+        <label>Nom :</label>
+        <div style="text-align: center">
+            <input type="text" name="Nom">
+        </div>
+        <label>Prénom :</label>
+        <div style="text-align: center">
+            <input type="text" name="Nom"><br>
+        </div>
+        <label>Adresse email :</label>
+        <div style="text-align: center">
+            <div style="text-align: center">
+                <input type="text" name="Nom">
+            </div>
+        </div>
+        <label>Téléphone :</label>
+        <div style="text-align: center">
+            <input type="text" name="Nom">
+        </div>
+        <label>Sujet :</label>
+        <div style="text-align: center">
+            <select name="Nom">
+                <option>Aide pour commande</option>
+                <option>Après vente, échange et retour</option>
+                <option>Problème technique</option>
+                <option>Autre sujet</option>
+            </select>
+        </div>
+        <label>Message :</label>
+        <div style="text-align: center">
+            <textarea cols="40" rows="4" maxlength="1000"></textarea>
+        </div>
+        <br />
+        <div style="text-align: center">
+            <input type="submit" name="Nom" value="Envoyer">
+        </div>
+    </div>
+
+
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

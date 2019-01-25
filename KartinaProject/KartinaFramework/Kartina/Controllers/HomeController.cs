@@ -13,7 +13,7 @@ namespace Kartina.Controllers
             return View();
         }
 
-        public ActionResult Aide()
+        public ActionResult About()
         {
             ViewBag.Message = "";
 
@@ -24,6 +24,11 @@ namespace Kartina.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult Help()
+        {
             return View();
         }
     }

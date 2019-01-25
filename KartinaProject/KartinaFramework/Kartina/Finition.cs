@@ -19,13 +19,12 @@ namespace Kartina
         {
             this.Cadre = new HashSet<Cadre>();
             this.Format1 = new HashSet<Format>();
-            this.Cadre1 = new HashSet<Cadre>();
-            this.Format11 = new HashSet<Format>();
         }
     
         public int id { get; set; }
         public string Label { get; set; }
-        public int Prix { get; set; }
+        public string Description { get; set; }
+        public Nullable<int> Pourcentage { get; set; }
     
         public virtual Finition Finition1 { get; set; }
         public virtual Finition Finition2 { get; set; }
@@ -34,9 +33,5 @@ namespace Kartina
         public virtual ICollection<Cadre> Cadre { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Format> Format1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cadre> Cadre1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Format> Format11 { get; set; }
     }
 }

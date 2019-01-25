@@ -1,0 +1,1118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="KartinaTPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adresse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Rue" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CodePostal" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ville" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Pays" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDUser" Type="int" />
+        </EntityType>
+        <EntityType Name="Cadre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Pourcentage" Type="int" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Statut" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IDUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetailCommande">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NbPhotos" Type="int" Nullable="false" />
+          <Property Name="IDCommande" Type="int" Nullable="false" />
+          <Property Name="PrixPhoto" Type="int" Nullable="false" />
+          <Property Name="IDPhoto" Type="int" Nullable="false" />
+          <Property Name="IDFormat" Type="int" Nullable="false" />
+          <Property Name="IDFinition" Type="int" Nullable="false" />
+          <Property Name="IDCadre" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'KartinaTP.dbo.DetailCommandePhoto' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="DetailCommandePhoto">
+          <Key>
+            <PropertyRef Name="IDdetailCommande" />
+            <PropertyRef Name="IDPhoto" />
+          </Key>
+          <Property Name="IDdetailCommande" Type="int" Nullable="false" />
+          <Property Name="IDPhoto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Finition">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="Pourcentage" Type="int" />
+        </EntityType>
+        <EntityType Name="FinitionCadre">
+          <Key>
+            <PropertyRef Name="IDFinition" />
+            <PropertyRef Name="IDCadre" />
+          </Key>
+          <Property Name="IDFinition" Type="int" Nullable="false" />
+          <Property Name="IDCadre" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Format">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Taille" Type="nvarchar" MaxLength="50" />
+          <Property Name="Coefficient" Type="int" />
+        </EntityType>
+        <EntityType Name="FormatFinition">
+          <Key>
+            <PropertyRef Name="IDFormat" />
+            <PropertyRef Name="IDFinition" />
+          </Key>
+          <Property Name="IDFormat" Type="int" Nullable="false" />
+          <Property Name="IDFinition" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orientation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDPhoto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titre" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Prix" Type="int" Nullable="false" />
+          <Property Name="Chemin" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NbTiragesMax" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDUser" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhotoFormat">
+          <Key>
+            <PropertyRef Name="IDPhoto" />
+            <PropertyRef Name="IDFormat" />
+          </Key>
+          <Property Name="IDPhoto" Type="int" Nullable="false" />
+          <Property Name="IDFormat" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'KartinaTP.dbo.PhotoTag' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="PhotoTag">
+          <Key>
+            <PropertyRef Name="IDPhoto" />
+            <PropertyRef Name="IDTag" />
+          </Key>
+          <Property Name="IDPhoto" Type="int" Nullable="false" />
+          <Property Name="IDTag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDUser" Type="int" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Label" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IDPhoto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Civilité" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="MotDePasse" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Telephone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Biographie" Type="text" />
+        </EntityType>
+        <Association Name="FK_Adresse_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adresse">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Cadre">
+          <End Role="Cadre" Type="Self.Cadre" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadre">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDCadre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Commande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Format">
+          <End Role="Format" Type="Self.Format" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Format">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDFormat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommandePhoto_DetailCommande">
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="1" />
+          <End Role="DetailCommandePhoto" Type="Self.DetailCommandePhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DetailCommande">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetailCommandePhoto">
+              <PropertyRef Name="IDdetailCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommandePhoto_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="DetailCommandePhoto" Type="Self.DetailCommandePhoto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetailCommandePhoto">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finition_Finition">
+          <End Role="Finition" Type="Self.Finition" Multiplicity="1" />
+          <End Role="Finition1" Type="Self.Finition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Finition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Finition1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinitionCadre_Cadre">
+          <End Role="Cadre" Type="Self.Cadre" Multiplicity="1" />
+          <End Role="FinitionCadre" Type="Self.FinitionCadre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadre">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FinitionCadre">
+              <PropertyRef Name="IDCadre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FinitionCadre_Finition">
+          <End Role="Finition" Type="Self.Finition" Multiplicity="1" />
+          <End Role="FinitionCadre" Type="Self.FinitionCadre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Finition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FinitionCadre">
+              <PropertyRef Name="IDFinition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Format_Finition">
+          <End Role="Finition" Type="Self.Finition" Multiplicity="1" />
+          <End Role="Format" Type="Self.Format" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Finition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Format">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormatFinition_Finition">
+          <End Role="Finition" Type="Self.Finition" Multiplicity="1" />
+          <End Role="FormatFinition" Type="Self.FormatFinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Finition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FormatFinition">
+              <PropertyRef Name="IDFinition" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FormatFinition_Format">
+          <End Role="Format" Type="Self.Format" Multiplicity="1" />
+          <End Role="FormatFinition" Type="Self.FormatFinition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Format">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="FormatFinition">
+              <PropertyRef Name="IDFormat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orientation_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="Orientation" Type="Self.Orientation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orientation">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoFormat_Format">
+          <End Role="Format" Type="Self.Format" Multiplicity="1" />
+          <End Role="PhotoFormat" Type="Self.PhotoFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Format">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhotoFormat">
+              <PropertyRef Name="IDFormat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoFormat_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="PhotoFormat" Type="Self.PhotoFormat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhotoFormat">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoTag_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="PhotoTag" Type="Self.PhotoTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PhotoTag">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhotoTag_Tag">
+          <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+          <End Role="PhotoTag" Type="Self.PhotoTag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tag">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhotoTag">
+              <PropertyRef Name="IDTag" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Theme_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KartinaTPModelStoreContainer">
+          <EntitySet Name="Adresse" EntityType="Self.Adresse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cadre" EntityType="Self.Cadre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Commande" EntityType="Self.Commande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailCommande" EntityType="Self.DetailCommande" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Finition" EntityType="Self.Finition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinitionCadre" EntityType="Self.FinitionCadre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Format" EntityType="Self.Format" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FormatFinition" EntityType="Self.FormatFinition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orientation" EntityType="Self.Orientation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhotoFormat" EntityType="Self.PhotoFormat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Theme" EntityType="Self.Theme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailCommandePhoto" EntityType="Self.DetailCommandePhoto" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DetailCommandePhoto].[IDdetailCommande] AS [IDdetailCommande], 
+    [DetailCommandePhoto].[IDPhoto] AS [IDPhoto]
+    FROM [dbo].[DetailCommandePhoto] AS [DetailCommandePhoto]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PhotoTag" EntityType="Self.PhotoTag" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PhotoTag].[IDPhoto] AS [IDPhoto], 
+    [PhotoTag].[IDTag] AS [IDTag]
+    FROM [dbo].[PhotoTag] AS [PhotoTag]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Adresse_User" Association="Self.FK_Adresse_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Adresse" EntitySet="Adresse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Cadre" Association="Self.FK_DetailCommande_Cadre">
+            <End Role="Cadre" EntitySet="Cadre" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Commande" Association="Self.FK_DetailCommande_Commande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Format" Association="Self.FK_DetailCommande_Format">
+            <End Role="Format" EntitySet="Format" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Photo" Association="Self.FK_DetailCommande_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommandePhoto_DetailCommande" Association="Self.FK_DetailCommandePhoto_DetailCommande">
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+            <End Role="DetailCommandePhoto" EntitySet="DetailCommandePhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommandePhoto_Photo" Association="Self.FK_DetailCommandePhoto_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="DetailCommandePhoto" EntitySet="DetailCommandePhoto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finition_Finition" Association="Self.FK_Finition_Finition">
+            <End Role="Finition" EntitySet="Finition" />
+            <End Role="Finition1" EntitySet="Finition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinitionCadre_Cadre" Association="Self.FK_FinitionCadre_Cadre">
+            <End Role="Cadre" EntitySet="Cadre" />
+            <End Role="FinitionCadre" EntitySet="FinitionCadre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FinitionCadre_Finition" Association="Self.FK_FinitionCadre_Finition">
+            <End Role="Finition" EntitySet="Finition" />
+            <End Role="FinitionCadre" EntitySet="FinitionCadre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Format_Finition" Association="Self.FK_Format_Finition">
+            <End Role="Finition" EntitySet="Finition" />
+            <End Role="Format" EntitySet="Format" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormatFinition_Finition" Association="Self.FK_FormatFinition_Finition">
+            <End Role="Finition" EntitySet="Finition" />
+            <End Role="FormatFinition" EntitySet="FormatFinition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FormatFinition_Format" Association="Self.FK_FormatFinition_Format">
+            <End Role="Format" EntitySet="Format" />
+            <End Role="FormatFinition" EntitySet="FormatFinition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orientation_Photo" Association="Self.FK_Orientation_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="Orientation" EntitySet="Orientation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_User" Association="Self.FK_Photo_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoFormat_Format" Association="Self.FK_PhotoFormat_Format">
+            <End Role="Format" EntitySet="Format" />
+            <End Role="PhotoFormat" EntitySet="PhotoFormat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoFormat_Photo" Association="Self.FK_PhotoFormat_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="PhotoFormat" EntitySet="PhotoFormat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoTag_Photo" Association="Self.FK_PhotoTag_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="PhotoTag" EntitySet="PhotoTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhotoTag_Tag" Association="Self.FK_PhotoTag_Tag">
+            <End Role="Tag" EntitySet="Tag" />
+            <End Role="PhotoTag" EntitySet="PhotoTag" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_User" Association="Self.FK_Role_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Theme_Photo" Association="Self.FK_Theme_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="Theme" EntitySet="Theme" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KartinaTPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adresse">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rue" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CodePostal" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ville" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pays" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Adresse_User" FromRole="Adresse" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Cadre">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DetailCommande" Relationship="Self.FK_DetailCommande_Cadre" FromRole="Cadre" ToRole="DetailCommande" />
+          <NavigationProperty Name="Finition" Relationship="Self.FinitionCadre" FromRole="Cadre" ToRole="Finition" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pourcentage" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Commande">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Statut" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DetailCommande" Relationship="Self.FK_DetailCommande_Commande" FromRole="Commande" ToRole="DetailCommande" />
+        </EntityType>
+        <EntityType Name="DetailCommande">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NbPhotos" Type="Int32" Nullable="false" />
+          <Property Name="IDCommande" Type="Int32" Nullable="false" />
+          <Property Name="PrixPhoto" Type="Int32" Nullable="false" />
+          <Property Name="IDPhoto" Type="Int32" Nullable="false" />
+          <Property Name="IDFormat" Type="Int32" Nullable="false" />
+          <Property Name="IDFinition" Type="Int32" Nullable="false" />
+          <Property Name="IDCadre" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cadre" Relationship="Self.FK_DetailCommande_Cadre" FromRole="DetailCommande" ToRole="Cadre" />
+          <NavigationProperty Name="Commande" Relationship="Self.FK_DetailCommande_Commande" FromRole="DetailCommande" ToRole="Commande" />
+          <NavigationProperty Name="Format" Relationship="Self.FK_DetailCommande_Format" FromRole="DetailCommande" ToRole="Format" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_DetailCommande_Photo" FromRole="DetailCommande" ToRole="Photo" />
+          <NavigationProperty Name="Photo1" Relationship="Self.DetailCommandePhoto" FromRole="DetailCommande" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="Finition">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Finition1" Relationship="Self.FK_Finition_Finition" FromRole="Finition" ToRole="Finition1" />
+          <NavigationProperty Name="Finition2" Relationship="Self.FK_Finition_Finition" FromRole="Finition1" ToRole="Finition" />
+          <NavigationProperty Name="Format" Relationship="Self.FK_Format_Finition" FromRole="Finition" ToRole="Format" />
+          <NavigationProperty Name="Cadre" Relationship="Self.FinitionCadre" FromRole="Finition" ToRole="Cadre" />
+          <NavigationProperty Name="Format1" Relationship="Self.FormatFinition" FromRole="Finition" ToRole="Format" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Pourcentage" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Format">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DetailCommande" Relationship="Self.FK_DetailCommande_Format" FromRole="Format" ToRole="DetailCommande" />
+          <NavigationProperty Name="Finition" Relationship="Self.FK_Format_Finition" FromRole="Format" ToRole="Finition" />
+          <NavigationProperty Name="Finition1" Relationship="Self.FormatFinition" FromRole="Format" ToRole="Finition" />
+          <NavigationProperty Name="Photo" Relationship="Self.PhotoFormat" FromRole="Format" ToRole="Photo" />
+          <Property Name="Taille" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Coefficient" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Orientation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDPhoto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_Orientation_Photo" FromRole="Orientation" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="Photo">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prix" Type="Int32" Nullable="false" />
+          <Property Name="Chemin" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NbTiragesMax" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DetailCommande" Relationship="Self.FK_DetailCommande_Photo" FromRole="Photo" ToRole="DetailCommande" />
+          <NavigationProperty Name="Orientation" Relationship="Self.FK_Orientation_Photo" FromRole="Photo" ToRole="Orientation" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Photo_User" FromRole="Photo" ToRole="User" />
+          <NavigationProperty Name="Theme" Relationship="Self.FK_Theme_Photo" FromRole="Photo" ToRole="Theme" />
+          <NavigationProperty Name="DetailCommande1" Relationship="Self.DetailCommandePhoto" FromRole="Photo" ToRole="DetailCommande" />
+          <NavigationProperty Name="Format" Relationship="Self.PhotoFormat" FromRole="Photo" ToRole="Format" />
+          <NavigationProperty Name="Tag" Relationship="Self.PhotoTag" FromRole="Photo" ToRole="Tag" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Role_User" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Photo" Relationship="Self.PhotoTag" FromRole="Tag" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="Theme">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Label" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDPhoto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_Theme_Photo" FromRole="Theme" ToRole="Photo" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Civilité" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MotDePasse" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Biographie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Adresse" Relationship="Self.FK_Adresse_User" FromRole="User" ToRole="Adresse" />
+          <NavigationProperty Name="Photo" Relationship="Self.FK_Photo_User" FromRole="User" ToRole="Photo" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Role_User" FromRole="User" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Adresse_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Adresse" Type="Self.Adresse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Adresse">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Cadre">
+          <End Role="Cadre" Type="Self.Cadre" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cadre">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDCadre" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Commande">
+          <End Role="Commande" Type="Self.Commande" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commande">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDCommande" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Format">
+          <End Role="Format" Type="Self.Format" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Format">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDFormat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DetailCommande_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DetailCommande">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Finition_Finition">
+          <End Role="Finition" Type="Self.Finition" Multiplicity="1" />
+          <End Role="Finition1" Type="Self.Finition" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Finition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Finition1">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Format_Finition">
+          <End Role="Finition" Type="Self.Finition" Multiplicity="1" />
+          <End Role="Format" Type="Self.Format" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Finition">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Format">
+              <PropertyRef Name="id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orientation_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="Orientation" Type="Self.Orientation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orientation">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Photo_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Photo">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Theme_Photo">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="1" />
+          <End Role="Theme" Type="Self.Theme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Photo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Theme">
+              <PropertyRef Name="IDPhoto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="IDUser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DetailCommandePhoto">
+          <End Role="DetailCommande" Type="Self.DetailCommande" Multiplicity="*" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+        </Association>
+        <Association Name="FinitionCadre">
+          <End Role="Cadre" Type="Self.Cadre" Multiplicity="*" />
+          <End Role="Finition" Type="Self.Finition" Multiplicity="*" />
+        </Association>
+        <Association Name="FormatFinition">
+          <End Role="Finition" Type="Self.Finition" Multiplicity="*" />
+          <End Role="Format" Type="Self.Format" Multiplicity="*" />
+        </Association>
+        <Association Name="PhotoFormat">
+          <End Role="Format" Type="Self.Format" Multiplicity="*" />
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+        </Association>
+        <Association Name="PhotoTag">
+          <End Role="Photo" Type="Self.Photo" Multiplicity="*" />
+          <End Role="Tag" Type="Self.Tag" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="KartinaTPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresse" EntityType="Self.Adresse" />
+          <EntitySet Name="Cadre" EntityType="Self.Cadre" />
+          <EntitySet Name="Commande" EntityType="Self.Commande" />
+          <EntitySet Name="DetailCommande" EntityType="Self.DetailCommande" />
+          <EntitySet Name="Finition" EntityType="Self.Finition" />
+          <EntitySet Name="Format" EntityType="Self.Format" />
+          <EntitySet Name="Orientation" EntityType="Self.Orientation" />
+          <EntitySet Name="Photo" EntityType="Self.Photo" />
+          <EntitySet Name="Role" EntityType="Self.Role" />
+          <EntitySet Name="Tag" EntityType="Self.Tag" />
+          <EntitySet Name="Theme" EntityType="Self.Theme" />
+          <EntitySet Name="User" EntityType="Self.User" />
+          <AssociationSet Name="FK_Adresse_User" Association="Self.FK_Adresse_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Adresse" EntitySet="Adresse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Cadre" Association="Self.FK_DetailCommande_Cadre">
+            <End Role="Cadre" EntitySet="Cadre" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Commande" Association="Self.FK_DetailCommande_Commande">
+            <End Role="Commande" EntitySet="Commande" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Format" Association="Self.FK_DetailCommande_Format">
+            <End Role="Format" EntitySet="Format" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DetailCommande_Photo" Association="Self.FK_DetailCommande_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Finition_Finition" Association="Self.FK_Finition_Finition">
+            <End Role="Finition" EntitySet="Finition" />
+            <End Role="Finition1" EntitySet="Finition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Format_Finition" Association="Self.FK_Format_Finition">
+            <End Role="Finition" EntitySet="Finition" />
+            <End Role="Format" EntitySet="Format" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orientation_Photo" Association="Self.FK_Orientation_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="Orientation" EntitySet="Orientation" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Photo_User" Association="Self.FK_Photo_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Theme_Photo" Association="Self.FK_Theme_Photo">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="Theme" EntitySet="Theme" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_User" Association="Self.FK_Role_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="DetailCommandePhoto" Association="Self.DetailCommandePhoto">
+            <End Role="DetailCommande" EntitySet="DetailCommande" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="FinitionCadre" Association="Self.FinitionCadre">
+            <End Role="Cadre" EntitySet="Cadre" />
+            <End Role="Finition" EntitySet="Finition" />
+          </AssociationSet>
+          <AssociationSet Name="FormatFinition" Association="Self.FormatFinition">
+            <End Role="Finition" EntitySet="Finition" />
+            <End Role="Format" EntitySet="Format" />
+          </AssociationSet>
+          <AssociationSet Name="PhotoFormat" Association="Self.PhotoFormat">
+            <End Role="Format" EntitySet="Format" />
+            <End Role="Photo" EntitySet="Photo" />
+          </AssociationSet>
+          <AssociationSet Name="PhotoTag" Association="Self.PhotoTag">
+            <End Role="Photo" EntitySet="Photo" />
+            <End Role="Tag" EntitySet="Tag" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KartinaTPModelStoreContainer" CdmEntityContainer="KartinaTPEntities">
+          <EntitySetMapping Name="Adresse">
+            <EntityTypeMapping TypeName="KartinaTPModel.Adresse">
+              <MappingFragment StoreEntitySet="Adresse">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Rue" ColumnName="Rue" />
+                <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="Pays" ColumnName="Pays" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cadre">
+            <EntityTypeMapping TypeName="KartinaTPModel.Cadre">
+              <MappingFragment StoreEntitySet="Cadre">
+                <ScalarProperty Name="Pourcentage" ColumnName="Pourcentage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commande">
+            <EntityTypeMapping TypeName="KartinaTPModel.Commande">
+              <MappingFragment StoreEntitySet="Commande">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Statut" ColumnName="Statut" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailCommande">
+            <EntityTypeMapping TypeName="KartinaTPModel.DetailCommande">
+              <MappingFragment StoreEntitySet="DetailCommande">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NbPhotos" ColumnName="NbPhotos" />
+                <ScalarProperty Name="IDCommande" ColumnName="IDCommande" />
+                <ScalarProperty Name="PrixPhoto" ColumnName="PrixPhoto" />
+                <ScalarProperty Name="IDPhoto" ColumnName="IDPhoto" />
+                <ScalarProperty Name="IDFormat" ColumnName="IDFormat" />
+                <ScalarProperty Name="IDFinition" ColumnName="IDFinition" />
+                <ScalarProperty Name="IDCadre" ColumnName="IDCadre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Finition">
+            <EntityTypeMapping TypeName="KartinaTPModel.Finition">
+              <MappingFragment StoreEntitySet="Finition">
+                <ScalarProperty Name="Pourcentage" ColumnName="Pourcentage" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Format">
+            <EntityTypeMapping TypeName="KartinaTPModel.Format">
+              <MappingFragment StoreEntitySet="Format">
+                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+                <ScalarProperty Name="Taille" ColumnName="Taille" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orientation">
+            <EntityTypeMapping TypeName="KartinaTPModel.Orientation">
+              <MappingFragment StoreEntitySet="Orientation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="IDPhoto" ColumnName="IDPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Photo">
+            <EntityTypeMapping TypeName="KartinaTPModel.Photo">
+              <MappingFragment StoreEntitySet="Photo">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Titre" ColumnName="Titre" />
+                <ScalarProperty Name="Prix" ColumnName="Prix" />
+                <ScalarProperty Name="Chemin" ColumnName="Chemin" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="NbTiragesMax" ColumnName="NbTiragesMax" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="KartinaTPModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Titre" ColumnName="Titre" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag">
+            <EntityTypeMapping TypeName="KartinaTPModel.Tag">
+              <MappingFragment StoreEntitySet="Tag">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Theme">
+            <EntityTypeMapping TypeName="KartinaTPModel.Theme">
+              <MappingFragment StoreEntitySet="Theme">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="IDPhoto" ColumnName="IDPhoto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="KartinaTPModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Civilité" ColumnName="Civilité" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MotDePasse" ColumnName="MotDePasse" />
+                <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+                <ScalarProperty Name="Biographie" ColumnName="Biographie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="DetailCommandePhoto" TypeName="KartinaTPModel.DetailCommandePhoto" StoreEntitySet="DetailCommandePhoto">
+            <EndProperty Name="DetailCommande">
+              <ScalarProperty Name="Id" ColumnName="IDdetailCommande" />
+            </EndProperty>
+            <EndProperty Name="Photo">
+              <ScalarProperty Name="id" ColumnName="IDPhoto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FinitionCadre" TypeName="KartinaTPModel.FinitionCadre" StoreEntitySet="FinitionCadre">
+            <EndProperty Name="Cadre">
+              <ScalarProperty Name="Id" ColumnName="IDCadre" />
+            </EndProperty>
+            <EndProperty Name="Finition">
+              <ScalarProperty Name="id" ColumnName="IDFinition" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FormatFinition" TypeName="KartinaTPModel.FormatFinition" StoreEntitySet="FormatFinition">
+            <EndProperty Name="Finition">
+              <ScalarProperty Name="id" ColumnName="IDFinition" />
+            </EndProperty>
+            <EndProperty Name="Format">
+              <ScalarProperty Name="id" ColumnName="IDFormat" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PhotoFormat" TypeName="KartinaTPModel.PhotoFormat" StoreEntitySet="PhotoFormat">
+            <EndProperty Name="Format">
+              <ScalarProperty Name="id" ColumnName="IDFormat" />
+            </EndProperty>
+            <EndProperty Name="Photo">
+              <ScalarProperty Name="id" ColumnName="IDPhoto" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="PhotoTag" TypeName="KartinaTPModel.PhotoTag" StoreEntitySet="PhotoTag">
+            <EndProperty Name="Photo">
+              <ScalarProperty Name="id" ColumnName="IDPhoto" />
+            </EndProperty>
+            <EndProperty Name="Tag">
+              <ScalarProperty Name="Id" ColumnName="IDTag" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

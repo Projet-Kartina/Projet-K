@@ -20,13 +20,12 @@ namespace Kartina
             this.DetailCommande = new HashSet<DetailCommande>();
             this.Finition1 = new HashSet<Finition>();
             this.Photo = new HashSet<Photo>();
-            this.Finition11 = new HashSet<Finition>();
-            this.Photo1 = new HashSet<Photo>();
         }
     
         public int id { get; set; }
         public string Label { get; set; }
-        public int Prix { get; set; }
+        public string Taille { get; set; }
+        public Nullable<int> Coefficient { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetailCommande> DetailCommande { get; set; }
@@ -35,9 +34,5 @@ namespace Kartina
         public virtual ICollection<Finition> Finition1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Photo> Photo { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Finition> Finition11 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Photo> Photo1 { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 160px;
+    padding-top: 157px;
     font-family: 'Ubuntu', sans-serif;
     color: #0d0d0d;
     font-size: 1.5rem;
@@ -47,6 +47,30 @@ ul {
     padding-left: 0;
 }
 
+.btn-themes {
+    padding: 8px 20px;
+    border: 2px solid #0d0d0d;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+    .btn-themes:hover {
+        background-color: #fff;
+    }
+
+    .btn-themes i {
+        transition: all 0.3s ease;
+    }
+
+    .btn-themes:hover i {
+        transform: translateX(5px);
+    }
+
+    .btn-themes:focus {
+        background-color: #fff;
+    }
 
 .dark-bg-color {
     background-color: #0d0d0d;
@@ -56,9 +80,11 @@ ul {
 .text-gray-color {
     color: #999;
 }
+
 .text-white-color {
     color: #fff;
 }
+
 .text-dark-color {
     color: #0d0d0d;
 }
@@ -67,6 +93,7 @@ ul {
 /* ----------- Header ----------- */
 .navbar-inverse {
     background-color: #0d0d0d;
+    transform: translate3d(0,0,0);
 }
 
 .navbar-header {
@@ -127,9 +154,9 @@ ul {
         color: white;
     }
 
-    #rightnav a:hover {
-        color: #ffc50c;
-    }
+        #rightnav a:hover {
+            color: #ffc50c;
+        }
 
 
 .langFlag {
@@ -193,6 +220,9 @@ ul {
 
 /* --------- END: Header --------- */
 
+
+
+
 /* ----------- Footer ------------ */
 footer {
     color: #999;
@@ -208,17 +238,109 @@ footer ul li {
     padding: 15px 5px 0;
 }
 
-footer ul li a {
-    color: #999;
-}
+    footer ul li a {
+        color: #999;
+    }
 /* --------- END: Footer --------- */
+
+
+
 /* ------------ Body ----------- */
 .body-content {
     margin-top: 50px;
     margin-bottom: 80px;
 }
+
+#home .body-content {
+    margin-top: 0;
+}
+
 /* --------- END: Body --------- */
 
+
+
+
+/* ------------ Homepage ----------- */
+.newCollection {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+#front {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.textTop-left {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: rgba(255,255,255,0.5);
+    box-shadow: 0 0 2px 1px rgba(255,255,255,0.5);
+    padding: 10px 20px;
+    text-align: center;
+    color: black;
+}
+
+
+#thumbsCol {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#thumbsCol-Header {
+    text-align: center;
+}
+
+#thumbsCol-Content {
+    margin-bottom: 30px;
+}
+
+    #thumbsCol-Content .thumbnail:hover {
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
+
+    #thumbsCol-Content .thumbnail:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+.square {
+    position: relative;
+    width: calc(50% - 15px);
+}
+
+    .square:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    .square .content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .square a img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale3d(1.1,1.1,1);
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    }
+
+    .square a:hover img {
+        transform: scale3d(1,1,1);
+    }
+
+/* --------- END: Homepage --------- */
 
 
 
@@ -227,26 +349,29 @@ footer ul li a {
     background-color: #0d0d0d;
     color: #fff;
 }
+
 #returnIndexDetails {
     color: #fff;
 }
+
     #returnIndexDetails:hover {
         color: #ffc50c;
     }
+
     #returnIndexDetails:focus {
         color: #ffc50c;
     }
 
-#artiste-detail{
+#artiste-detail {
     margin: 0 auto;
     max-width: 600px;
-    text-align:center;
+    text-align: center;
     margin-bottom: 100px;
 }
 
-#artiste-detail .thumbnail {
-    padding: 0;
-}
+    #artiste-detail .thumbnail {
+        padding: 0;
+    }
 
 #artiste-detail-page .thumbnail h3 {
     margin: 10px 0 5px;
@@ -256,19 +381,38 @@ footer ul li a {
     margin: 5px 0;
 }
 
-.detailImageLink {
+.thumbnail .detailImageLink {
     height: 260px;
     width: 100%;
     display: block;
 }
 
-#artiste-detail-page .detailImageLink img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .thumbnail .detailImageLink > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
 /* --------- END: UserDetail --------- */
 
 
+
+/* ------------ Order ----------- */
+#orderPage {
+    background-color: #f1f1f1;
+}
+
+.orderImageWrapper {
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+    .orderImageWrapper img {
+        max-height: 500px;
+        max-width: 100%;
+    }
+.orderImageDetail hr{
+    background-color: #333;
+}
+/* --------- END: Order --------- */
 

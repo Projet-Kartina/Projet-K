@@ -1,34 +1,69 @@
 ﻿@model IEnumerable<Kartina.Photo>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Nos Photographies";
 }
 
-<h2><em>Page Artiste</em></h2>
-
-<table class="table">
-  
-    <tr>
-        <td>
-            <img src="@Url.Content("~/Content/Images/femme1.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/femme2.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/femme3.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/nature1.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/nature2.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/nature3.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/noiretblanc1.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/noiretblanc2.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/noiretblanc3.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/urbain1.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/urbain1.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/urbain3.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/vintage1.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/vintage2.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/vintage3.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/voyage1.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/voyage2.jpeg")" />
-            <img src="@Url.Content("~/Content/Images/voyage3.jpeg")" />
-        </td>
-    </tr>
-
-</table>
+<div class="filter">
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Thèmes
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href=">Voyage</a></li>
+            <li><a href="#">Noir&Blanc</a></li>
+            <li><a href="#">Femme</a></li>
+            <li><a href="#">Nature</a></li>
+            <li><a href="#">Paysage</a></li>
+            <li><a href="#">Urbain</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="" data-toggle="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+            Orientation
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">Portrait</a></li>
+            <li><a href="#">Paysage</a></li>
+            <li><a href="#">Carré</a></li>
+            <li><a href="#">Panoramique</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+            Prix
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="#">moins de 50€</a></li>
+            <li><a href="#">De 50€ à 100€</a></li>
+            <li><a href="#">De 100€ et 200€</a></li>
+            <li><a href="#">De 200 à 500€</a></li>
+            <li><a href="#">De 500 à 1000€</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+            Format
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href=">Portrait</a></li>
+            <li><a href="#">Paysage</a></li>
+            <li><a href="#">Carré</a></li>
+            <li><a href="#">Panoramique</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdownMenu1" aria-haspopup="true" aria-expanded="true">
+            Filtres avancés
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="@Url.Action("Nouveautés", "Index", "Photos")" /></li>
+            <li><a href="@Url.Action("Derniers exemplaires", "Index", "Photos")" /></li>
+        </ul>
+    </div>
+</div>

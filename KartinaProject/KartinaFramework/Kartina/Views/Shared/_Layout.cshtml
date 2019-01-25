@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
 </head>
-<body  id="@ViewBag.idPage">
+<body id="@ViewBag.idPage">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div>
             <div class="navbar-header container">
@@ -60,7 +60,7 @@
 
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav container">
-                    <li>@Html.ActionLink("Photographies", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Photographies", "Index", "Photos")</li>
                     <li>@Html.ActionLink("Nouveautés", "Index", "Home")</li>
                     <li>@Html.ActionLink("Artistes", "Index", "Users")</li>
                     <li>@Html.ActionLink("Derniers exemplaires", "Index", "Home")</li>
@@ -82,7 +82,7 @@
                 </div>
 
                 <ul class="col-sm-8 text-right">
-                    <li >
+                    <li>
                         <a href="mentionslegales.html" title="Mentions légales">
                             <span>Mentions légales</span>
                         </a>
@@ -112,5 +112,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <script src="@Url.Content("~/Scripts/main.js")"></script>
 </body>
 </html>
