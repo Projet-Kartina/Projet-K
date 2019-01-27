@@ -1,0 +1,68 @@
+﻿@model Kartina.User
+
+@{
+    ViewBag.Title = "Panier";
+    ViewBag.idPage = "cart";
+}
+
+<h2>Recapitulatif de votre choix</h2>
+<ul class="">
+    <li>Photo choisie</a></li>
+    @*<li><img src="@Url.Content("~/Content/images/")@Html.DisplayFor(modelItem => item.Chemin)' alt="@Html.DisplayFor(modelItem => item.Titre)"/></li>*@
+    <li>Format</a></li>
+    <li>Finition</li>
+    <li>Cadre</li>
+    <li>Prix TVA</li>
+    <li></li>
+</ul>
+<div id="granddiv">
+    <h1><strong>Panier</strong></h1>
+    <div class="divblanc">
+        <div class="petitbloc">
+            <h2>@Html.DisplayFor(model => model.Prenom) @Html.DisplayFor(model => model.Nom)</h2>
+            <p id="titreDesc">
+                <h3>test test</h3>
+            </p>
+        </div>
+        <div class="petitbloc">
+            <h6>Format</h6>
+            @*<p>Choix Format</p>*@ <!-- methode POST recupérer format -->
+            <h6>Finition</h6>
+            @*<p>Choix Finition</p>*@<!-- methode POST recupérer finition -->
+            <h6>Cadre</h6>
+            @*<p>Choix Cadre</p>*@<!-- methode POST recupérer finition -->
+        </div>
+        <div class="petitbloc">
+            @*<h6>Quantite</h6>*@<!-- methode POST recupérer quantité -->
+            <form>
+                <input type="text" name="Quantite">
+                <input type="button" name="suppression" value="Supprimer">
+            </form>
+        </div>
+        <div class="petitbloc">
+            @*<label>100 €</label>*@ <!-- methode POST calcul prix total -->
+        </div>
+    </div>
+    <div class="blocspe" class="alignedroite">
+        <form>
+            <input type="checkbox" name="carteCP">
+            <label>J'ai une carte cadeau/un code promo</label><br />
+        </form>
+    </div>
+    <div class="alignegauche">
+        <p>
+            <a class="btn btn-themes" href="@Url.Action("Index","Photos")" title="Continue">
+                <i class="fas fa-angle-left"></i> Continuer mes achats &nbsp;
+            </a>
+        </p>
+    </div>
+    <div class="blocspe">
+        <label>Total :</label>
+        @*<label>100 € TVA inclus (1.20)</label>*@ <!-- affichage prox total -->
+    </div>
+    <div class="blocspe">
+        <form>
+            <input type="button" name="Validation" value="Valider">
+        </form>
+    </div>
+</div>
