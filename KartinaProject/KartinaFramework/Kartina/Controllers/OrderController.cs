@@ -61,6 +61,11 @@ namespace Kartina.Controllers
         }
 
 
+        public ActionResult Cart()
+        {
+            return View();
+        }
+
         // GET: Order/Edit/5
         public ActionResult Edit(int id)
         {

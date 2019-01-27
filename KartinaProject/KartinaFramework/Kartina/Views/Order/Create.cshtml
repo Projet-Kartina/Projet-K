@@ -28,32 +28,33 @@
 
             <ul class="nav nav-tabs">
                 <li class="active">
-                    <a href="#formatProcess"><span>1</span> Format</a>
+                    <a href="#firstStep"><span>1</span> Format</a>
                 </li>
                 <li >
-                    <a href="#finitionProcess"><span>2</span> Finition</a>
+                    <a href="#secondStep"><span>2</span> Finition</a>
                 </li>
                 <li >
-                    <a href="#cadreProcess"><span>3</span> Cadre</a>
+                    <a href="#thirdStep"><span>3</span> Cadre</a>
                 </li>
             </ul>
             <ul class="tab-content">
-                <li id="formatProcess" class="tab-pane fade in active">
-                    <p>
-                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                <li id="firstStep" class="tab-pane fade in active">
+                    @foreach(var item in Model.Format)
+                    {
+                    <div class="elemBox">
+                        <input type="radio" name="gender" value="&" id="@Html.DisplayForModel(item.id)">
+                        <label for="@Html.DisplayForModel(item.id)">@item.Label</label>
+                    </div>
 
-                    </p>
+
+                    }
                 </li>
-                <li id="finitionProcess" class="tab-pane fade">
-                    <p>
-                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
-
-                    </p>
+                <li id="secondStep" class="tab-pane fade">
+                    
                 </li>
-                <li id="cadreProcess" class="tab-pane fade">
+                <li id="thirdStep" class="tab-pane fade">
                     <p>
                         Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
-
                     </p>
                 </li>
             </ul>
