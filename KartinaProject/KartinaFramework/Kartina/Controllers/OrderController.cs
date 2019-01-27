@@ -43,20 +43,22 @@ namespace Kartina.Controllers
             return View(photo);
         }
 
-        // POST: Order/Create
+        // POST: Order/Process
         [HttpPost]
-        public ActionResult Create(int? id, FormCollection collection)
+        public ActionResult Finition(int? id, FormCollection collection)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Photo photo = db.Photo.Find(id);
-            if (photo == null)
-            {
 
-                return HttpNotFound();
-            }
+            var c = Convert.ToString(collection["format"]);
+
+            Photo photo = db.Photo.Find(id);
+
+            string ID = id.ToString();
+
+            //var finitionList = from finition in db.Finition
             return View(photo);
         }
 

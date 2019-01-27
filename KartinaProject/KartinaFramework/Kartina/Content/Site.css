@@ -425,9 +425,42 @@ footer ul li {
 .orderImageDetail hr{
     background-color: #333;
 }
+
+.nav-tabs .active a{
+    font-weight: bold;
+}
+
+.tab-content {
+    margin-top: 8px;
+}
+
+.itemWrapper {
+    display: block;
+    max-width: 100%;
+    padding: 15px;
+    border: 3px solid #ddd;
+    background: #fff;
+    transition:all 0.3s ease;
+    font-weight: normal;
+}
+    .itemWrapper:hover {
+        border-color: lawngreen;
+    }
+
+    .itemWrapper input {
+        margin-right:15px;
+    }
+
+    .itemWrapper .itemPrice {
+        font-size: 2rem;
+        float:right;
+    }
+
+.next-step {
+    float:right;
+    background-color: #fff;
+}
 /* --------- END: Order --------- */
-
-
 /* --------- shopping cart--------- */
 .petitbloc {
     display: inline-block;
@@ -469,3 +502,28 @@ footer ul li {
     padding: 1rem;
 }
 /* --------- END: shopping cart--------- */
+
+/* --------- Photo search --------- */
+.filtre {
+    float: left;
+    margin: 0 1.5%;
+    width: 40%;
+    border-color: black;
+    border-right-style: double;
+}
+
+.resultat {
+    float: right;
+    margin: 0 1.5%;
+    width: 70%;
+}
+
+.resultat-themes {
+    text-align: center;
+    margin-top: 20%;
+}
+
+.resultat .pagination {
+    margin-bottom: 10%;
+}
+/* --------- END: Photo search --------- */

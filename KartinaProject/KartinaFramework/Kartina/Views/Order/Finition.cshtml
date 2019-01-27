@@ -1,0 +1,80 @@
+﻿@model Kartina.Photo
+
+@{
+    ViewBag.Title = "votre photographie d'art";
+    ViewBag.idPage = "orderPage";
+}
+
+<section class="row">
+    <div class="col-sm-6">
+
+        <figure class="orderImageWrapper">
+            <img src='@Url.Content("~/Content/Images/")@Html.DisplayFor(model => model.Chemin)' id="first" />
+        </figure>
+        <hr />
+        <capture class="orderImageDetail">
+            <hr />
+            <h3>
+                @Html.DisplayFor(model => model.User.Prenom) @Html.DisplayFor(model => model.User.Nom)
+            </h3>
+            <span>@Html.DisplayFor(model => model.Titre)</span>
+            <p>@Html.DisplayFor(model => model.User.Biographie)</p>
+        </capture>
+    </div>
+    <div class="col-sm-6">
+        <h2>Créez votre photographie d'art sur mesure</h2>
+
+        <div id="purchaseProcess">
+
+            <ul class="nav nav-tabs">
+                <li class="disabled">
+                    <a href="#firstStep"><span>1</span> Format</a>
+                </li>
+                <li class="active">
+                    <a href="#secondStep"><span>2</span> Finition</a>
+                </li>
+                <li class="disabled">
+                    <a href="#thirdStep"><span>3</span> Cadre</a>
+                </li>
+            </ul>
+
+            <ul class="tab-content">
+                <li id="firstStep" class="tab-pane fade in active">
+
+                </li>
+                <li id="secondStep" class="tab-pane fade in active">
+                    @using (Html.BeginForm("Cadre", "Order", new { Model.id }, FormMethod.Post))
+                    {
+                        foreach (var item in Model.Format)
+                        {
+                            <label id="@("format-" + item.id)" class="itemWrapper">
+                                @Html.RadioButtonFor(model => model.Format, item.id, new { id = "format-" + item.id })
+                                <strong>@item.Label</strong>
+                                <span>@item.Taille</span>
+                                <span class="itemPrice">@( Model.Prix * item.Coefficient + " €")</span>
+                            </label>
+
+                        }
+
+                        <input class="btn btn-themes btn-black next-step" type="submit" value="Etape suivante" />
+                    }
+                </li>
+                <li id="thirdStep" class="tab-pane fade">
+                    <p>
+                        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+@{
+    ViewBag.Title = "Finition";
+}
+
+<h2>Finition</h2>
+

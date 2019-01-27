@@ -164,7 +164,6 @@
     <Compile Include="Commande.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\CadresController.cs" />
     <Compile Include="Controllers\CommandesController.cs" />
     <Compile Include="Controllers\FinitionsController.cs" />
     <Compile Include="Controllers\FormatsController.cs" />
@@ -335,11 +334,6 @@
     <Content Include="Views\Finitions\Details.cshtml" />
     <Content Include="Views\Finitions\Edit.cshtml" />
     <Content Include="Views\Finitions\Index.cshtml" />
-    <Content Include="Views\Cadres\Create.cshtml" />
-    <Content Include="Views\Cadres\Delete.cshtml" />
-    <Content Include="Views\Cadres\Details.cshtml" />
-    <Content Include="Views\Cadres\Edit.cshtml" />
-    <Content Include="Views\Cadres\Index.cshtml" />
     <Content Include="Views\Orientations\Create.cshtml" />
     <Content Include="Views\Orientations\Delete.cshtml" />
     <Content Include="Views\Orientations\Details.cshtml" />
@@ -348,6 +342,7 @@
     <Content Include="Views\Order\Create.cshtml" />
     <Content Include="Views\Home\Help.cshtml" />
     <Content Include="Views\Order\Cart.cshtml" />
+    <Content Include="Views\Order\Finition.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
